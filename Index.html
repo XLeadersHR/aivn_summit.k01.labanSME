@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 Tầng tiến hóa AI · La bàn cho CEO SME 2026 · AIVN Summit K1</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#C22620;--red-dark:#8B1A16;--red-light:#D94040;--gold:#D4AF37;--gold-light:#F0D060;--white:#FFFFFF;--off-white:#F5F0E8;--black:#0A0A0A;--dark:#1A1A1A}
+html,body{width:100%;height:100%;overflow:hidden;background:#111;font-family:'Be Vietnam Pro',sans-serif}
+.pres{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#1a1a1a}
+.canvas{position:relative;background:var(--red);overflow:hidden;flex-shrink:0}
+.gold-top{position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);z-index:10}
+.gold-bottom{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);z-index:10}
+.logo{position:absolute;top:20px;left:28px;z-index:10;display:flex;align-items:center;gap:8px}
+.logo-text{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:#fff;letter-spacing:2px}
+.slide-footer{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:3px;color:var(--gold);z-index:10;text-transform:lowercase}
+.slide{position:absolute;inset:0;display:none;background:var(--red)}
+.slide.active{display:block}
+.content-wrap{position:absolute;top:60px;left:60px;right:60px;bottom:40px;display:flex;flex-direction:column;z-index:2}
+.sec-label{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:500}
+.s-title{font-family:'Oswald',sans-serif;font-size:26px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:14px}
+.gold-divider{height:1px;background:var(--gold);opacity:.4;margin-bottom:22px}
+.card{background:rgba(0,0,0,.4);border:1px solid rgba(212,175,55,.25);padding:14px 18px}
+.card-gold{background:rgba(0,0,0,.45);border:1px solid rgba(212,175,55,.45);padding:16px 20px}
+.card-accent{background:rgba(0,0,0,.35);border-left:3px solid var(--gold);padding:14px 18px}
+.tag-gold{display:inline-block;background:var(--gold);color:var(--red-dark);font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2px;padding:4px 12px;text-transform:uppercase;font-weight:700}
+.big-stat{font-family:'Oswald',sans-serif;font-weight:700;color:var(--gold);line-height:1}
+.source{font-family:'Be Vietnam Pro',sans-serif;font-size:10.5px;color:rgba(255,255,255,.5);font-style:italic;letter-spacing:.3px}
+.controls{display:flex;align-items:center;gap:16px;margin-top:10px;flex-shrink:0}
+.btn{background:rgba(194,38,32,.8);border:1px solid rgba(212,175,55,.4);color:var(--gold);font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:1px;padding:7px 20px;cursor:pointer;text-transform:uppercase}
+.btn:hover{background:var(--red);border-color:var(--gold)}
+.btn:disabled{opacity:.3;cursor:not-allowed}
+.slide-counter{font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;min-width:60px;text-align:center}
+.progress{height:2px;background:rgba(212,175,55,.2);flex:1;max-width:200px}
+.progress-fill{height:100%;background:var(--gold);transition:width .3s}
+</style>
+</head>
+<body>
+<div class="pres">
+  <div class="canvas" id="canvas">
+    <div class="gold-top"></div>
+    <div class="gold-bottom"></div>
+    <div class="logo"><span class="logo-text">XLEADER ACADEMY</span></div>
+    <div class="slide-footer">xleader.edu.vn</div>
+
+    <!-- SLIDE 1 -->
+    <div class="slide active" id="slide-0">
+      <div style="position:absolute;top:-140px;right:-140px;width:460px;height:460px;border:1px solid rgba(212,175,55,.18);border-radius:50%;pointer-events:none"></div>
+      <div style="position:absolute;top:-80px;right:-80px;width:340px;height:340px;border:1px solid rgba(212,175,55,.22);border-radius:50%;pointer-events:none"></div>
+      <div style="position:absolute;bottom:-180px;right:-100px;width:400px;height:400px;border:1px solid rgba(212,175,55,.15);border-radius:50%;pointer-events:none"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 80px">
+        <div style="padding:10px 26px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.08);margin-bottom:34px"><span style="font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;color:var(--gold);letter-spacing:5px">AIVN SUMMIT K1  ·  AI VANGUARD NETWORK</span></div>
+        <div style="font-family:'Oswald',sans-serif;font-weight:700;color:#fff;font-size:68px;line-height:1.05;letter-spacing:3px;text-align:center">4 TẦNG TIẾN HÓA AI</div>
+        <div style="font-family:'Oswald',sans-serif;font-weight:400;color:var(--gold);font-size:32px;line-height:1.1;letter-spacing:6px;text-align:center;margin-top:14px">LA BÀN CHO CEO SME · 2026</div>
+        <div style="width:96px;height:2px;background:var(--gold);margin-top:36px;margin-bottom:26px"></div>
+        <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(255,255,255,.85);text-align:center;line-height:1.55;font-style:italic;max-width:880px">Hiểu đúng Bản chất · Chọn đúng Tầng · Đi đúng Hướng</div>
+        <div style="margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:4px">
+          <div style="font-family:'Oswald',sans-serif;font-size:17px;font-weight:600;color:#fff;letter-spacing:3px;text-transform:uppercase">John Vu · Anh TV</div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:var(--gold);letter-spacing:.5px;font-style:italic">CEO Askvasir  ·  CEO Genesis Ecosystem  ·  AI Engineer / Researcher</div>
+        </div>
+        <div style="margin-top:30px;font-family:'Oswald',sans-serif;font-size:11px;color:rgba(255,255,255,.55);letter-spacing:4px;text-transform:uppercase">25.04.2026  ·  AIVN Summit K1  ·  Hà Nội</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide" id="slide-1">
+      <div class="content-wrap">
+        <div class="sec-label">Mở đầu</div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px">
+          <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:400;color:var(--gold);line-height:.8">"</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:34px;font-weight:500;color:#fff;line-height:1.35;text-align:center;max-width:1000px;letter-spacing:.5px">Năm 2026, AI Agent là chủ đề <span style="color:var(--gold)">được nhắc NHIỀU NHẤT</span> · nhưng <span style="color:var(--gold)">hiểu đúng ÍT NHẤT</span>?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:1080px;margin-top:16px">
+            <div class="card" style="text-align:center"><div class="big-stat" style="font-size:44px">93<span style="font-size:26px">%</span></div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.78);margin-top:8px;line-height:1.5">doanh nghiệp Việt Nam có kế hoạch triển khai AI Agent</div></div>
+            <div class="card" style="text-align:center"><div class="big-stat" style="font-size:44px">38<span style="font-size:26px">%</span></div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.78);margin-top:8px;line-height:1.5">kỳ vọng AI làm việc cùng con người trong 1 năm tới</div></div>
+            <div class="card-gold" style="text-align:center"><div class="big-stat" style="font-size:44px">40<span style="font-size:26px">%</span></div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.88);margin-top:8px;line-height:1.5">dự án Agentic AI sẽ <strong style="color:var(--gold)">thất bại</strong> đến cuối 2027 (Gartner)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide" id="slide-2">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 100px">
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:10px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:18px">Phần 01</div>
+        <div style="width:96px;height:2px;background:var(--gold);margin-bottom:30px"></div>
+        <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:2px;text-align:center">Khả năng của Agent</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:24px;font-weight:400;color:var(--gold);line-height:1.2;letter-spacing:5px;text-align:center;margin-top:12px">Bản chất</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide" id="slide-3">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 01 · Khả năng của Agent</div>
+        <div class="s-title">AI hôm nay đã làm được những gì?</div>
+        <div class="gold-divider"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;flex:1"><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Viết code phần mềm</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">Cursor · Devin</div></div><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Tạo video từ chữ</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">Sora · Veo 3</div></div><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Thiết kế hình ảnh</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">Nano Banana · Midjourney</div></div><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Gọi điện thoại tự động</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">AI Voice Agent</div></div><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Tóm tắt nội dung</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">Text · Video · Meeting</div></div><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Dịch real-time</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">100+ ngôn ngữ · Google Translate</div></div><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Tự đặt vé, đặt phòng</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">Operator · Claude Cowork</div></div><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Tự debug và sửa code</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">AntiGravity · Claude Code</div></div><div class="card"><div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px">Tự lập kế hoạch dự án</div><div style="font-size:12.5px;color:rgba(255,255,255,.78)">A → Z · Autonomous</div></div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div class="slide" id="slide-4">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 01 · Bản chất</div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+          <div style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;font-weight:600">Nguyên lý</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:68px;font-weight:700;color:#fff;line-height:1;letter-spacing:3px;text-align:center">GENERATIVE AI</div>
+          <div style="width:80px;height:2px;background:var(--gold)"></div>
+          <div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:400;color:var(--gold);text-align:center;line-height:1.3;letter-spacing:1px">Bộ não của AI Agent hiện đại</div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;font-style:italic;color:rgba(255,255,255,.8);text-align:center;margin-top:16px;max-width:800px;line-height:1.6">Nguyên lý tại sao "máy" có thể làm những điều đó?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div class="slide" id="slide-5">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 01 · Lịch sử</div>
+        <div class="s-title">Lịch sử AI · 3 mốc quyết định</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;align-items:center;gap:0">
+          <div style="flex:1;padding:20px 16px;background:rgba(0,0,0,.35);border-left:3px solid var(--gold)">
+            <div style="font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1">2017</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-top:10px">Transformer</div>
+            <div style="font-size:12.5px;color:rgba(255,255,255,.75);margin-top:6px;line-height:1.55">Google · paper "Attention is all you need" · máy bắt đầu hiểu ngôn ngữ con người</div>
+          </div>
+          <div style="color:var(--gold);font-size:24px;padding:0 12px">→</div>
+          <div style="flex:1;padding:20px 16px;background:rgba(0,0,0,.35);border-left:3px solid var(--gold)">
+            <div style="font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1">2022</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-top:10px">ChatGPT</div>
+            <div style="font-size:12.5px;color:rgba(255,255,255,.75);margin-top:6px;line-height:1.55">OpenAI · 100 triệu user trong 2 tháng · kỷ lục mọi thời đại</div>
+          </div>
+          <div style="color:var(--gold);font-size:24px;padding:0 12px">→</div>
+          <div style="flex:1;padding:20px 16px;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.5)">
+            <div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">2024–26</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-top:10px">Kỷ nguyên AI Agent</div>
+            <div style="font-size:12.5px;color:rgba(255,255,255,.85);margin-top:6px;line-height:1.55">Từ "trợ lý trả lời" → <strong style="color:var(--gold)">"nhân sự số"</strong> · Hôm nay</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7 -->
+    <div class="slide" id="slide-6">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 01 · Thử nghiệm</div>
+        <div class="s-title">Cách hoạt động của Generative AI</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px;justify-content:center">
+          <div class="card"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:#fff;font-weight:600;margin-bottom:10px">1. Lá cây màu ____</div><div style="display:flex;gap:18px;font-size:13.5px;color:rgba(255,255,255,.82)"><span>A. Xanh <strong style="color:var(--gold)">(50%)</strong></span><span>B. Vàng <strong style="color:var(--gold)">(30%)</strong></span><span>C. Đỏ <strong style="color:var(--gold)">(20%)</strong></span></div></div>
+          <div class="card"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:#fff;font-weight:600;margin-bottom:10px">2. Vào mùa thu, lá cây màu ____</div><div style="display:flex;gap:18px;font-size:13.5px;color:rgba(255,255,255,.82)"><span>A. Xanh <strong style="color:var(--gold)">(20%)</strong></span><span>B. Vàng <strong style="color:var(--gold)">(60%)</strong></span><span>C. Đỏ <strong style="color:var(--gold)">(20%)</strong></span></div></div>
+          <div class="card-gold"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:#fff;font-weight:600;margin-bottom:10px">3. Vào mùa đông, lá cây màu ____</div><div style="display:flex;gap:18px;font-size:13.5px;color:rgba(255,255,255,.92)"><span>A. Xanh <strong style="color:var(--gold)">(98%)</strong></span><span>B. Vàng <strong style="color:var(--gold)">(1%)</strong></span><span>C. Đỏ <strong style="color:var(--gold)">(1%)</strong></span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8 -->
+    <div class="slide" id="slide-7">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 01 · Bản chất LLM</div>
+        <div class="s-title">Bản chất LLM · chỉ làm MỘT việc</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+          <div style="font-family:'Oswald',sans-serif;font-size:30px;color:#fff;text-align:center;font-weight:500;letter-spacing:1px">Hôm nay tôi đi ____</div>
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;width:100%;max-width:900px">
+            <div class="card-gold" style="text-align:center;padding:14px 10px"><div style="font-family:'Oswald',sans-serif;font-size:22px;color:var(--gold);font-weight:700">chợ</div><div style="font-family:'Oswald',sans-serif;font-size:20px;color:#fff;font-weight:700;margin-top:6px">35%</div></div>
+            <div class="card" style="text-align:center;padding:14px 10px"><div style="font-family:'Oswald',sans-serif;font-size:22px;color:#fff;font-weight:700">làm</div><div style="font-family:'Oswald',sans-serif;font-size:20px;color:var(--gold);font-weight:700;margin-top:6px">28%</div></div>
+            <div class="card" style="text-align:center;padding:14px 10px"><div style="font-family:'Oswald',sans-serif;font-size:22px;color:#fff;font-weight:700">học</div><div style="font-family:'Oswald',sans-serif;font-size:20px;color:var(--gold);font-weight:700;margin-top:6px">18%</div></div>
+            <div class="card" style="text-align:center;padding:14px 10px"><div style="font-family:'Oswald',sans-serif;font-size:22px;color:#fff;font-weight:700">chơi</div><div style="font-family:'Oswald',sans-serif;font-size:20px;color:var(--gold);font-weight:700;margin-top:6px">12%</div></div>
+            <div class="card" style="text-align:center;padding:14px 10px"><div style="font-family:'Oswald',sans-serif;font-size:22px;color:#fff;font-weight:700">khác</div><div style="font-family:'Oswald',sans-serif;font-size:20px;color:var(--gold);font-weight:700;margin-top:6px">7%</div></div>
+          </div>
+          <div class="card-accent" style="max-width:1000px"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:#fff;line-height:1.6">LLM <strong style="color:var(--gold)">CHỌN XÁC SUẤT CAO NHẤT</strong> · không phải từ đúng nhất · Không có "suy nghĩ" · Chỉ có <strong style="color:var(--gold)">XÁC SUẤT</strong>.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9 -->
+    <div class="slide" id="slide-8">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 01 · Bản chất LLM</div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+          <div style="font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:#fff;line-height:1.2;text-align:center;letter-spacing:.5px;max-width:1100px">Bản chất LLM · <span style="color:var(--gold)">chỉ làm MỘT việc</span></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:60px;height:1px;background:var(--gold);opacity:.6"></div><div style="width:7px;height:7px;background:var(--gold);transform:rotate(45deg)"></div><div style="width:60px;height:1px;background:var(--gold);opacity:.6"></div></div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:18px;color:rgba(255,255,255,.88);text-align:center;line-height:1.6;max-width:900px;font-style:italic">Dự đoán từ kế tiếp · dựa trên xác suất trong dữ liệu huấn luyện · không có ý thức, không có hiểu biết, không có mục đích</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10 -->
+    <div class="slide" id="slide-9">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 01 · AI hoạt động ra sao</div>
+        <div class="s-title">Context Window + Tokens</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">
+          <div style="font-family:'Oswald',sans-serif;font-size:26px;color:#fff;text-align:center;line-height:1.3;max-width:1000px">Mọi tương tác với AI diễn ra trong một <span style="color:var(--gold);font-weight:700">"mặt bàn làm việc"</span> · có giới hạn</div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:rgba(255,255,255,.8);text-align:center;max-width:900px;line-height:1.6;font-style:italic">Hiểu mặt bàn này = biết AI sẽ đắt bao nhiêu · và khi nào bạn cần tối ưu</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11 -->
+    <div class="slide" id="slide-10">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 01 · Context Window + Tokens</div>
+        <div class="s-title">AI hoạt động ra sao?</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center">
+          <div class="card-gold">
+            <div style="font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:14px">Context Window · Mặt bàn làm việc</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px">
+              <div class="card" style="padding:12px"><div style="font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;color:var(--gold)">System Prompt</div><div style="font-size:11.5px;color:rgba(255,255,255,.72);margin-top:4px">cố định</div></div>
+              <div class="card" style="padding:12px"><div style="font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;color:var(--gold)">Lịch sử chat</div><div style="font-size:11.5px;color:rgba(255,255,255,.72);margin-top:4px">tích lũy</div></div>
+              <div class="card" style="padding:12px"><div style="font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;color:var(--gold)">RAG / KB</div><div style="font-size:11.5px;color:rgba(255,255,255,.72);margin-top:4px">kết quả</div></div>
+              <div class="card" style="padding:12px"><div style="font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;color:var(--gold)">Câu hỏi mới</div><div style="font-size:11.5px;color:rgba(255,255,255,.72);margin-top:4px">input</div></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+            <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:4px">Input Tokens</div><div style="font-size:13px;color:#fff">TÍNH TIỀN</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:4px">LLM Processing</div><div style="font-size:13px;color:rgba(255,255,255,.78)">miễn phí</div></div>
+            <div class="card-gold"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:4px">Output Tokens</div><div style="font-size:13px;color:#fff">TÍNH TIỀN · <span style="color:var(--gold);font-weight:700">×3–5</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12 -->
+    <div class="slide" id="slide-11">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 100px">
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:10px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:18px">Phần 02</div>
+        <div style="width:96px;height:2px;background:var(--gold);margin-bottom:30px"></div>
+        <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:2px;text-align:center">Việt Nam đang ở đâu?</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:24px;font-weight:400;color:var(--gold);line-height:1.2;letter-spacing:5px;text-align:center;margin-top:12px">Bối cảnh AI ở các doanh nghiệp Việt</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13 -->
+    <div class="slide" id="slide-12">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 02 · Bối cảnh Việt Nam</div>
+        <div class="s-title">Việt Nam KHÔNG tụt hậu</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+          <div class="big-stat" style="font-size:180px">93<span style="font-size:100px">%</span></div>
+          <div style="width:80px;height:2px;background:var(--gold)"></div>
+          <div style="font-family:'Oswald',sans-serif;font-size:24px;color:#fff;text-align:center;line-height:1.3;max-width:960px">Doanh nghiệp Việt đã áp dụng ít nhất <span style="color:var(--gold);font-weight:700">MỘT công nghệ AI</span></div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:rgba(255,255,255,.8);text-align:center;font-style:italic;max-width:800px">Tỷ lệ cao · nền tảng cơ bản đã có</div>
+          <div class="source" style="margin-top:12px">Nguồn · Deloitte Access Economics 2025 · khảo sát SME APAC ủy nhiệm bởi Meta</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 14 -->
+    <div class="slide" id="slide-13">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 02 · Bối cảnh Việt Nam</div>
+        <div class="s-title">Thậm chí dẫn đầu APAC</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">
+          <div class="big-stat" style="font-size:180px">65<span style="font-size:100px">%</span></div>
+          <div style="width:80px;height:2px;background:var(--gold)"></div>
+          <div style="font-family:'Oswald',sans-serif;font-size:24px;color:#fff;text-align:center;line-height:1.3;max-width:960px">SME Việt dùng <span style="color:var(--gold);font-weight:700">messaging automation</span></div>
+          <div style="font-family:'Oswald',sans-serif;font-size:15px;color:var(--gold);text-align:center;letter-spacing:3px;text-transform:uppercase;font-weight:600">Cao nhất khu vực châu Á - Thái Bình Dương</div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:rgba(255,255,255,.75);text-align:center;font-style:italic">Nhanh hơn Singapore · Indonesia · Thái Lan</div>
+          <div class="source" style="margin-top:12px">Nguồn · Deloitte 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 15 -->
+    <div class="slide" id="slide-14">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 02 · Khoảng cách</div>
+        <div class="s-title">Nhưng khoảng cách nằm ở đâu?</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div class="card" style="text-align:center;padding:24px">
+              <div class="big-stat" style="font-size:100px;color:rgba(255,255,255,.85)">93<span style="font-size:60px">%</span></div>
+              <div style="font-family:'Oswald',sans-serif;font-size:16px;color:#fff;margin-top:8px;letter-spacing:1px">có AI cơ bản</div>
+              <div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;font-style:italic">chatbot · Zalo/FB automation</div>
+            </div>
+            <div class="card-gold" style="text-align:center;padding:24px;background:rgba(212,175,55,.15)">
+              <div class="big-stat" style="font-size:100px">19<span style="font-size:60px">%</span></div>
+              <div style="font-family:'Oswald',sans-serif;font-size:16px;color:var(--gold);margin-top:8px;letter-spacing:1px;font-weight:700">đã deploy AI Agent</div>
+              <div style="font-size:12px;color:rgba(255,255,255,.8);margin-top:4px;font-style:italic">thực sự vào production</div>
+            </div>
+          </div>
+          <div class="card-accent" style="text-align:center"><div style="font-family:'Oswald',sans-serif;font-size:18px;color:#fff;font-weight:500;line-height:1.4">Câu hỏi cho CEO · doanh nghiệp bạn thuộc <span style="color:var(--gold);font-weight:700">19%</span> · hay <span style="color:var(--gold);font-weight:700">81%</span>?</div></div>
+          <div class="source" style="text-align:center">Nguồn · Databricks State of AI Agents 2026 · 20.000+ tổ chức khảo sát</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 16 -->
+    <div class="slide" id="slide-15">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 100px">
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:10px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:18px">Phần 03</div>
+        <div style="width:96px;height:2px;background:var(--gold);margin-bottom:30px"></div>
+        <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:2px;text-align:center">4 Tầng tiến hóa AI</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:24px;font-weight:400;color:var(--gold);line-height:1.2;letter-spacing:5px;text-align:center;margin-top:12px">Doanh nghiệp chúng ta đang ở đâu?</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 17 -->
+    <div class="slide" id="slide-16">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 03 · Bản đồ Tiến hóa</div>
+        <div class="s-title">Bản đồ 4 Tầng tiến hóa AI</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;gap:10px;align-items:stretch">
+          <div class="card" style="flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center;text-align:center;padding:20px 14px">
+            <div class="tag-gold" style="align-self:center">Tầng 1</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:20px;color:#fff;font-weight:700;margin-top:8px">Chatbot cứng</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:12px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:4px">Rule-based</div>
+          </div>
+          <div style="display:flex;align-items:center;color:var(--gold);font-size:28px">→</div>
+          <div class="card" style="flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center;text-align:center;padding:20px 14px">
+            <div class="tag-gold" style="align-self:center">Tầng 2</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:20px;color:#fff;font-weight:700;margin-top:8px">LLM Copilot</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:12px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:4px">Trợ lý AI</div>
+          </div>
+          <div style="display:flex;align-items:center;color:var(--gold);font-size:28px">→</div>
+          <div class="card-gold" style="flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center;text-align:center;padding:20px 14px;background:rgba(212,175,55,.18);border-color:rgba(212,175,55,.65)">
+            <div class="tag-gold" style="align-self:center">Tầng 3 · TRỌNG TÂM</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:20px;color:var(--gold);font-weight:700;margin-top:8px">AI Agent tự chủ</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:12px;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Autonomous</div>
+          </div>
+          <div style="display:flex;align-items:center;color:var(--gold);font-size:28px">→</div>
+          <div class="card" style="flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center;text-align:center;padding:20px 14px;opacity:.75">
+            <div class="tag-gold" style="align-self:center">Tầng 4</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:20px;color:#fff;font-weight:700;margin-top:8px">Multi-Agent</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:12px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-top:4px">Agentic AI</div>
+          </div>
+        </div>
+        <div class="card-accent" style="margin-top:18px;text-align:center"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff;line-height:1.55">Phần lớn SME Việt đang ở <strong style="color:var(--gold)">Tầng 1</strong> · Số ít thử <strong style="color:var(--gold)">Tầng 2</strong> · <strong style="color:var(--gold)">Tầng 3</strong> mới tạo ROI thực sự</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 18 -->
+    <div class="slide" id="slide-17">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 03 · Tầng 01</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div class="tag-gold" style="font-size:13px;padding:6px 16px">Tầng 01</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;color:#fff;line-height:1">Chatbot cứng</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:15px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:600">Rule-based</div>
+          </div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1">
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Bản chất</div><div style="font-size:14px;color:#fff;line-height:1.55">Trả lời theo kịch bản cứng · Không hiểu ngôn ngữ tự nhiên.</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Ví dụ</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.55">Bot Facebook trả lời FAQ · Bot Zalo dạng menu nhấn nút</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Hiện trạng</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.55">Phần lớn SME Việt đang ở đây (93% · Deloitte 2025)</div></div>
+            <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Nhận định</div><div style="font-size:14px;color:#fff;line-height:1.55">Khởi đầu hợp lý · KHÔNG đủ lợi thế cạnh tranh năm 2026.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 19 -->
+    <div class="slide" id="slide-18">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 03 · Tầng 02</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div class="tag-gold" style="font-size:13px;padding:6px 16px">Tầng 02</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;color:#fff;line-height:1">LLM Copilot</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:15px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:600">Trợ lý AI</div>
+          </div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1">
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Bản chất</div><div style="font-size:14px;color:#fff;line-height:1.55">ChatGPT-style · Con người ra lệnh, AI hỗ trợ viết, tóm tắt, tra cứu.</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Ví dụ</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.55">Nhân viên dùng ChatGPT/Claude/Gemini hỗ trợ công việc hàng ngày</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Hiện trạng</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.55">SME Việt thử nghiệm rải rác · Chưa có quản lý tập trung.</div></div>
+            <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Nhận định</div><div style="font-size:14px;color:#fff;line-height:1.55">Triển khai nhanh · chi phí thấp · Rủi ro hallucination nếu thiếu kiểm soát.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 20 -->
+    <div class="slide" id="slide-19">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 03 · Tầng 03</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div class="tag-gold" style="font-size:13px;padding:6px 16px">Tầng 03</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;color:var(--gold);line-height:1">AI Agent tự chủ</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:15px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:600">Autonomous Agent</div>
+          </div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1">
+            <div class="card-gold"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Bản chất</div><div style="font-size:14px;color:#fff;line-height:1.55">AI tự suy luận → tự gọi công cụ → tự thực thi quy trình · RA QUYẾT ĐỊNH trong phạm vi được giao.</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Ví dụ</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.55">Agent tự tiếp nhận đơn, kiểm kho, gọi shipper, gửi xác nhận</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Hiện trạng</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.55">Chỉ 19% tổ chức đã deploy · Governance → ROI cao hơn <strong style='color:var(--gold)'>12 LẦN</strong> (Databricks 2026)</div></div>
+            <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Nhận định</div><div style="font-size:14px;color:#fff;line-height:1.55"><strong style='color:var(--gold)'>TẦNG TẠO ROI THỰC SỰ</strong> · SME Việt cần hướng tới 2026-2027.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 21 -->
+    <div class="slide" id="slide-20">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 03 · Tầng 04</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div class="tag-gold" style="font-size:13px;padding:6px 16px">Tầng 04</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:38px;font-weight:700;color:#fff;line-height:1">Multi-Agent / Agentic AI</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:15px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:600">Hệ sinh thái nhiều agent</div>
+          </div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1">
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Bản chất</div><div style="font-size:14px;color:#fff;line-height:1.55">Nhiều AI Agent cùng làm việc như một đội · Có sub-agents, memory chung, phối hợp giải quyết mục tiêu lớn.</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Ví dụ</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.55">Đội AI · nghiên cứu thị trường + phân tích đối thủ + viết báo cáo + làm slide</div></div>
+            <div class="card"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Hiện trạng</div><div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.55">Adoption +327% trong 4 tháng (Databricks) · <strong style='color:var(--gold)'>40%</strong> dự án sẽ bị HỦY trước 2027 (Gartner)</div></div>
+            <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px">Nhận định</div><div style="font-size:14px;color:#fff;line-height:1.55">Đang ở đỉnh hype · CHƯA phải lớp ưu tiên cho SME 2026-2027.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 22 -->
+    <div class="slide" id="slide-21">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 03 · Khuyến nghị</div>
+        <div class="s-title">Vùng đầu tư khuyến nghị cho SME Việt · 2026-2027</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px">
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:20px 18px">
+            <div><div class="tag-gold">Tầng 1</div><div style="font-family:'Oswald',sans-serif;font-size:18px;color:#fff;margin-top:12px;font-weight:700;line-height:1.25">Chatbot cứng</div></div>
+            <div><div style="font-family:'Oswald',sans-serif;font-size:14px;color:var(--gold);letter-spacing:1px;font-weight:600">Củng cố nền móng</div><div style="font-size:22px;color:var(--gold);margin-top:6px">✓</div></div>
+          </div>
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:20px 18px">
+            <div><div class="tag-gold">Tầng 2</div><div style="font-family:'Oswald',sans-serif;font-size:18px;color:#fff;margin-top:12px;font-weight:700;line-height:1.25">LLM Copilot</div></div>
+            <div><div style="font-family:'Oswald',sans-serif;font-size:14px;color:var(--gold);letter-spacing:1px;font-weight:600">Triển khai · nhanh, rẻ</div><div style="font-size:22px;color:var(--gold);margin-top:6px">✓✓</div></div>
+          </div>
+          <div class="card-gold" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:20px 18px;background:rgba(212,175,55,.2);border-color:rgba(212,175,55,.7)">
+            <div><div class="tag-gold" style="background:var(--red-dark);color:var(--gold)">Tầng 3 · TRỌNG TÂM</div><div style="font-family:'Oswald',sans-serif;font-size:18px;color:var(--gold);margin-top:12px;font-weight:700;line-height:1.25">Autonomous Agent</div></div>
+            <div><div style="font-family:'Oswald',sans-serif;font-size:14px;color:#fff;letter-spacing:1px;font-weight:700">Đầu tư · ROI rõ ràng</div><div style="font-size:26px;color:var(--gold);margin-top:6px">★</div></div>
+          </div>
+          <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding:20px 18px;opacity:.7">
+            <div><div class="tag-gold">Tầng 4</div><div style="font-family:'Oswald',sans-serif;font-size:18px;color:#fff;margin-top:12px;font-weight:700;line-height:1.25">Agentic AI</div></div>
+            <div><div style="font-family:'Oswald',sans-serif;font-size:14px;color:var(--gold);letter-spacing:1px;font-weight:600">Quan sát · chưa vội</div><div style="font-size:22px;color:var(--gold);margin-top:6px">⏸</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 23 -->
+    <div class="slide" id="slide-22">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 100px">
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:10px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:18px">Phần 04</div>
+        <div style="width:96px;height:2px;background:var(--gold);margin-bottom:30px"></div>
+        <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:2px;text-align:center">Phân biệt thuật ngữ</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:24px;font-weight:400;color:var(--gold);line-height:1.2;letter-spacing:5px;text-align:center;margin-top:12px">Generative AI · AI Agent · Agentic AI</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 24 -->
+    <div class="slide" id="slide-23">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 04 · Cảnh báo</div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px">
+          <div style="font-family:'Oswald',sans-serif;font-size:36px;font-weight:500;color:#fff;line-height:1.3;text-align:center;max-width:1080px;letter-spacing:.5px">Khi vendor nói <span style="color:var(--gold);font-style:italic">"chúng tôi có giải pháp AI Agent"</span> · bạn có biết họ đang <span style="color:var(--gold)">bán cho bạn CÁI GÌ?</span></div>
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:60px;height:1px;background:var(--gold);opacity:.6"></div><div style="width:7px;height:7px;background:var(--gold);transform:rotate(45deg)"></div><div style="width:60px;height:1px;background:var(--gold);opacity:.6"></div></div>
+          <div class="card-accent" style="max-width:1000px;text-align:center"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:16px;color:#fff;font-style:italic;line-height:1.6">Hầu hết vendor gọi <strong style="color:var(--gold)">"Generative AI"</strong> là <strong style="color:var(--gold)">"AI Agent"</strong> để bán giá cao</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 25 -->
+    <div class="slide" id="slide-24">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 04 · Phân biệt thuật ngữ</div>
+        <div class="s-title">3 thuật ngữ · 3 thế giới khác nhau</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+          <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:20px 20px">
+      <div><div style="font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:2px">GENERATIVE AI</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.7);font-style:italic;margin-top:4px">Sinh nội dung</div></div>
+      <div style="background:rgba(0,0,0,.35);padding:10px 12px;border-left:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:6px">Flow</div><div style="font-size:12.5px;color:#fff;line-height:1.55">{FLOW_GEN}</div></div>
+      <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;font-style:italic">VD · ChatGPT · Midjourney</div>
+    </div>
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:14px;padding:20px 20px">
+      <div><div style="font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:2px">AI AGENT</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.7);font-style:italic;margin-top:4px">Hành động có mục tiêu</div></div>
+      <div style="background:rgba(0,0,0,.35);padding:10px 12px;border-left:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:6px">Flow</div><div style="font-size:12.5px;color:#fff;line-height:1.55">{FLOW_AGT}</div></div>
+      <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;font-style:italic">VD · Agent tự đặt vé</div>
+    </div>
+          <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:20px 20px">
+      <div><div style="font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:2px">AGENTIC AI</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.7);font-style:italic;margin-top:4px">Hệ sinh thái nhiều agent</div></div>
+      <div style="background:rgba(0,0,0,.35);padding:10px 12px;border-left:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:6px">Flow</div><div style="font-size:12.5px;color:#fff;line-height:1.55">{FLOW_AGC}</div></div>
+      <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;font-style:italic">VD · Đội AI tự nghiên cứu + báo cáo</div>
+    </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 26 -->
+    <div class="slide" id="slide-25">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 04 · Phân biệt thuật ngữ</div>
+        <div class="s-title">3 thuật ngữ · ví dụ cụ thể</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+          <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:20px 20px">
+      <div><div style="font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:2px">GENERATIVE AI</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.7);font-style:italic;margin-top:4px">Sinh nội dung</div></div>
+      <div style="background:rgba(0,0,0,.35);padding:10px 12px;border-left:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:6px">Flow</div><div style="font-size:12.5px;color:#fff;line-height:1.55">{FLOW_GEN}</div></div>
+      <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;font-style:italic">VD · Viết email gửi khách hàng</div>
+    </div>
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:14px;padding:20px 20px">
+      <div><div style="font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:2px">AI AGENT</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.7);font-style:italic;margin-top:4px">Hành động có mục tiêu</div></div>
+      <div style="background:rgba(0,0,0,.35);padding:10px 12px;border-left:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:6px">Flow</div><div style="font-size:12.5px;color:#fff;line-height:1.55">{FLOW_AGT}</div></div>
+      <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;font-style:italic">VD · "Hãy gửi email báo cáo tháng này cho toàn bộ khách hàng"</div>
+    </div>
+          <div class="card" style="display:flex;flex-direction:column;gap:14px;padding:20px 20px">
+      <div><div style="font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:2px">AGENTIC AI</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.7);font-style:italic;margin-top:4px">Hệ sinh thái nhiều agent</div></div>
+      <div style="background:rgba(0,0,0,.35);padding:10px 12px;border-left:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:6px">Flow</div><div style="font-size:12.5px;color:#fff;line-height:1.55">{FLOW_AGC}</div></div>
+      <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.55;font-style:italic">VD · "Hãy thực hiện chiến dịch báo cáo và chăm sóc khách hàng tháng này"</div>
+    </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 27 -->
+    <div class="slide" id="slide-26">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 04 · Bài học</div>
+        <div class="s-title">Thứ tự ưu tiên cho CEO</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px;justify-content:center">
+          <div class="card-gold" style="display:flex;align-items:center;gap:24px;padding:20px 24px">
+            <div style="font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;min-width:60px">01</div>
+            <div style="flex:1"><div style="font-family:'Oswald',sans-serif;font-size:22px;color:#fff;font-weight:700;letter-spacing:1px">Generative AI</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.78);margin-top:4px;line-height:1.5">phù hợp 95% nhu cầu hàng ngày của SME · viết, tóm tắt, dịch, brainstorm</div></div>
+            <div class="tag-gold" style="font-size:11px;padding:6px 14px">DÙNG NGAY</div>
+          </div>
+          <div class="card-gold" style="display:flex;align-items:center;gap:24px;padding:20px 24px;border-color:rgba(212,175,55,.7);background:rgba(212,175,55,.18)">
+            <div style="font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;min-width:60px">02</div>
+            <div style="flex:1"><div style="font-family:'Oswald',sans-serif;font-size:22px;color:var(--gold);font-weight:700;letter-spacing:1px">AI Agent</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.85);margin-top:4px;line-height:1.5">phù hợp các quy trình nghiệp vụ rõ ràng, lặp lại, có ROI đo được</div></div>
+            <div class="tag-gold" style="font-size:11px;padding:6px 14px;background:var(--red-dark);color:var(--gold)">ĐẦU TƯ 12 THÁNG TỚI</div>
+          </div>
+          <div class="card" style="display:flex;align-items:center;gap:24px;padding:20px 24px;opacity:.7">
+            <div style="font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:rgba(255,255,255,.6);line-height:1;min-width:60px">03</div>
+            <div style="flex:1"><div style="font-family:'Oswald',sans-serif;font-size:22px;color:#fff;font-weight:700;letter-spacing:1px">Agentic AI</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.78);margin-top:4px;line-height:1.5">chưa cần thiết cho SME giai đoạn này · quan sát</div></div>
+            <div class="tag-gold" style="font-size:11px;padding:6px 14px;background:rgba(255,255,255,.15);color:#fff">QUAN SÁT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 28 -->
+    <div class="slide" id="slide-27">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 100px">
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:10px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:18px">Phần 05</div>
+        <div style="width:96px;height:2px;background:var(--gold);margin-bottom:30px"></div>
+        <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:2px;text-align:center">Stories thành công</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:24px;font-weight:400;color:var(--gold);line-height:1.2;letter-spacing:5px;text-align:center;margin-top:12px">3 global + 3 Việt Nam</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 29 -->
+    <div class="slide" id="slide-28">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 05 · Global</div>
+        <div class="s-title">Quốc tế · 3 nền tảng SME toàn cầu đang dùng</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:12px;padding:20px 22px">
+            <div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:700">E-commerce</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#fff;font-weight:700;letter-spacing:2px">SHOPIFY</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.55">4M+ merchants toàn cầu</div>
+          </div>
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:12px;padding:20px 22px">
+            <div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:700">Customer Service</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#fff;font-weight:700;letter-spacing:2px">INTERCOM</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.55">AI CSKH cho SaaS SME</div>
+          </div>
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:12px;padding:20px 22px">
+            <div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:700">CRM · Marketing · Sales</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:28px;color:#fff;font-weight:700;letter-spacing:2px">HUBSPOT</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.55">220K+ SME B2B</div>
+          </div>
+        </div>
+        <div class="card-accent" style="margin-top:16px;text-align:center"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff;line-height:1.55">Không phải tập đoàn khổng lồ · đây là <strong style="color:var(--gold)">3 nền tảng bạn có thể BẮT ĐẦU DÙNG tuần sau</strong>.</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 30 -->
+    <div class="slide" id="slide-29">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 05 · SHOPIFY</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div style="font-family:'Oswald',sans-serif;font-size:36px;color:#fff;font-weight:700;letter-spacing:2px">SHOPIFY</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:16px;color:var(--gold);font-weight:500">Magic + Sidekick</div>
+            <div class="tag-gold" style="margin-left:auto">Tầng 3</div>
+          </div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14.5px;color:rgba(255,255,255,.82);font-style:italic;line-height:1.55">Nền tảng e-commerce cho SME toàn cầu</div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1"><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">4M+</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">merchants</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">chủ yếu SME</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">~70%</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">giảm thời gian</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">viết product description</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">1-click</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">launch campaign</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">Sidekick tự đề xuất + tạo sẵn</div></div></div>
+          <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:6px">→ Bài học</div><div style="font-size:13.5px;color:#fff;line-height:1.55">Bán trên Shopify, Haravan, Sapo, KiotViet? → Hỏi nền tảng có AI Agent chưa · dùng NGAY.</div></div>
+          <div class="source">Nguồn · Shopify Q3 2024 · Editions Winter '24</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 31 -->
+    <div class="slide" id="slide-30">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 05 · INTERCOM</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div style="font-family:'Oswald',sans-serif;font-size:36px;color:#fff;font-weight:700;letter-spacing:2px">INTERCOM</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:16px;color:var(--gold);font-weight:500">Fin AI Agent</div>
+            <div class="tag-gold" style="margin-left:auto">Tầng 3</div>
+          </div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14.5px;color:rgba(255,255,255,.82);font-style:italic;line-height:1.55">AI CSKH cho SaaS · B2B SME</div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1"><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">~50%</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">câu hỏi KH</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">resolve tự động trọn vẹn</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">$0.99</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">/ resolution</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">pay only when AI solves</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">30 giờ</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">/ tuần tiết kiệm</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">team support nhỏ</div></div></div>
+          <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:6px">→ Bài học</div><div style="font-size:13.5px;color:#fff;line-height:1.55">Mô hình <strong style='color:var(--gold)'>PAY-AS-YOU-GO</strong> · không giải = không mất tiền · An toàn cho CFO, ROI đo được ngay.</div></div>
+          <div class="source">Nguồn · Intercom Stories 2024-25 · Anthropic Case Study (Fin chạy trên Claude)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 32 -->
+    <div class="slide" id="slide-31">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 05 · HUBSPOT</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div style="font-family:'Oswald',sans-serif;font-size:36px;color:#fff;font-weight:700;letter-spacing:2px">HUBSPOT</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:16px;color:var(--gold);font-weight:500">Breeze</div>
+            <div class="tag-gold" style="margin-left:auto">Tầng 3-4</div>
+          </div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14.5px;color:rgba(255,255,255,.82);font-style:italic;line-height:1.55">AI cho Sales · Marketing · Service</div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1"><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">220K+</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">SME B2B</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">đang dùng</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">×5</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">content production</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">1 marketer = 3-5 người</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">+30%</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">lead conversion</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">với Breeze Agents</div></div></div>
+          <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:6px">→ Bài học</div><div style="font-size:13.5px;color:#fff;line-height:1.55">Đội 2 marketer có sức sản xuất của đội 8-10 · <strong style='color:var(--gold)'>KHÔNG tuyển thêm người</strong> · chọn đúng tool.</div></div>
+          <div class="source">Nguồn · HubSpot Inbound 2024 · State of Marketing 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 33 -->
+    <div class="slide" id="slide-32">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 05 · Việt Nam</div>
+        <div class="s-title">Việt Nam · 3 giải pháp cho HÀNG TRĂM NGHÌN SME</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:12px;padding:20px 22px">
+            <div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:700">Conversation Platform</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:24px;color:#fff;font-weight:700;letter-spacing:1px">FPT.AI ENGAGE</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.55">120M cuộc hội thoại/tháng</div>
+          </div>
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:12px;padding:20px 22px">
+            <div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:700">Kế toán · HR · CRM</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:24px;color:#fff;font-weight:700;letter-spacing:1px">MISA AVA</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.55">250K+ SME Việt</div>
+          </div>
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:12px;padding:20px 22px">
+            <div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:700">POS · E-commerce</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:24px;color:#fff;font-weight:700;letter-spacing:1px">SAPO AI</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.55">150K+ shop bán lẻ</div>
+          </div>
+        </div>
+        <div class="card-accent" style="margin-top:16px;text-align:center"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff;line-height:1.55">Người Việt  ·  Môi trường Việt  ·  Ngôn ngữ Việt  ·  <strong style="color:var(--gold)">Phục vụ DOANH NGHIỆP GIỐNG BẠN</strong></div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 34 -->
+    <div class="slide" id="slide-33">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 05 · FPT.AI ENGAGE</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div style="font-family:'Oswald',sans-serif;font-size:36px;color:#fff;font-weight:700;letter-spacing:2px">FPT.AI ENGAGE</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:16px;color:var(--gold);font-weight:500">Conversation Platform</div>
+            <div class="tag-gold" style="margin-left:auto">Tầng 3</div>
+          </div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14.5px;color:rgba(255,255,255,.82);font-style:italic;line-height:1.55">AI Agent CSKH đóng gói cho DN Việt</div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1"><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">120M</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">cuộc hội thoại</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">/ tháng toàn nền tảng</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">50M</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">cuộc voice AI</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">/ tháng</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">-40% / +60%</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">chi phí / productivity</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">khách hàng báo cáo</div></div></div>
+          <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:6px">→ Bài học</div><div style="font-size:13.5px;color:#fff;line-height:1.55">FPT.AI có gói SME · đăng ký online, pay-as-you-go · Tuần sau bạn có thể test thử <strong style='color:var(--gold)'>MIỄN PHÍ</strong>.</div></div>
+          <div class="source">Nguồn · FPT.AI Annual Milestone Report 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 35 -->
+    <div class="slide" id="slide-34">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 05 · MISA AVA</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div style="font-family:'Oswald',sans-serif;font-size:36px;color:#fff;font-weight:700;letter-spacing:2px">MISA AVA</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:16px;color:var(--gold);font-weight:500">Trợ lý ảo AI</div>
+            <div class="tag-gold" style="margin-left:auto">Tầng 2-3</div>
+          </div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14.5px;color:rgba(255,255,255,.82);font-style:italic;line-height:1.55">AI tích hợp trong hệ sinh thái MISA · kế toán · HR · CRM · bán hàng</div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1"><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">250K+</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">SME Việt</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">đang dùng MISA</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">×60</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">tra cứu nghiệp vụ</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">15-30 phút → vài giây</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">24/7</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">hỏi đáp tiếng Việt</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">chuyên ngữ cảnh kế toán/thuế VN</div></div></div>
+          <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:6px">→ Bài học</div><div style="font-size:13.5px;color:#fff;line-height:1.55">Dùng phần mềm Việt (MISA, Base, KiotViet, Sapo, Bizfly)? → Kiểm tra họ có AI Agent chưa · Nếu có: <strong style='color:var(--gold)'>DÙNG NGAY</strong>.</div></div>
+          <div class="source">Nguồn · MISA AVA launch announcements 2024-2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 36 -->
+    <div class="slide" id="slide-35">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 05 · SAPO AI</div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:20px">
+            <div style="font-family:'Oswald',sans-serif;font-size:36px;color:#fff;font-weight:700;letter-spacing:2px">SAPO AI</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:16px;color:var(--gold);font-weight:500">Trợ lý AI bán hàng</div>
+            <div class="tag-gold" style="margin-left:auto">Tầng 2-3</div>
+          </div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14.5px;color:rgba(255,255,255,.82);font-style:italic;line-height:1.55">Cho shop bán lẻ · POS + e-commerce + omnichannel</div>
+          <div style="height:1px;background:var(--gold);opacity:.4"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1"><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">150K+</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">shop bán lẻ</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">đang dùng Sapo</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">Vài giây</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">auto mô tả SP</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">từ ảnh + tên</div></div><div style="text-align:center;padding:14px 10px;background:rgba(0,0,0,.35);border-top:2px solid var(--gold)"><div style="font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1">24/7</div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase;margin-top:6px;font-weight:600">chatbot bán hàng</div><div style="font-size:10.5px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3">đa kênh · Shopee/Lazada/TikTok/web</div></div></div>
+          <div class="card-accent"><div style="font-family:'Oswald',sans-serif;font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:6px">→ Bài học</div><div style="font-size:13.5px;color:#fff;line-height:1.55">Shop 2-3 người có thể vận hành như shop 10 người · Sức mạnh thực sự của Tầng 2-3 cho SME.</div></div>
+          <div class="source">Nguồn · Sapo product announcements 2024-2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 37 -->
+    <div class="slide" id="slide-36">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 100px">
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:10px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:18px">Phần 06</div>
+        <div style="width:96px;height:2px;background:var(--gold);margin-bottom:30px"></div>
+        <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:2px;text-align:center">3 Cơ hội để SME bứt phá</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:24px;font-weight:400;color:var(--gold);line-height:1.2;letter-spacing:5px;text-align:center;margin-top:12px">Rào cản của đám đông → Lợi thế của người hành động</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 38 -->
+    <div class="slide" id="slide-37">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 06 · Rào cản & Cơ hội</div>
+        <div class="s-title">Rào cản của 81% = Cơ hội cho 19%</div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+          <div class="card" style="display:flex;flex-direction:column;gap:12px;padding:22px">
+            <div style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:3px;color:#fff;text-transform:uppercase;font-weight:700">3 Rào cản · 81% SME mắc kẹt</div>
+            <div style="height:1px;background:rgba(255,255,255,.2)"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px">
+              <div style="display:flex;align-items:center;gap:14px"><div class="big-stat" style="font-size:38px;color:rgba(255,255,255,.9);min-width:80px">69%</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff">Quyền riêng tư dữ liệu</div></div>
+              <div style="display:flex;align-items:center;gap:14px"><div class="big-stat" style="font-size:38px;color:rgba(255,255,255,.9);min-width:80px">37%</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff">Chi phí triển khai</div></div>
+              <div style="display:flex;align-items:center;gap:14px"><div class="big-stat" style="font-size:38px;color:rgba(255,255,255,.9);min-width:80px">32%</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff">Thiếu kỹ năng</div></div>
+            </div>
+          </div>
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:12px;padding:22px;background:rgba(212,175,55,.15);border-color:rgba(212,175,55,.5)">
+            <div style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700">3 Cơ hội · cho người HÀNH ĐỘNG</div>
+            <div style="height:1px;background:var(--gold);opacity:.4"></div>
+            <div style="display:flex;flex-direction:column;gap:14px;margin-top:6px">
+              <div class="card-accent"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff;font-weight:600;line-height:1.5">Chủ quyền dữ liệu = lợi thế cạnh tranh</div></div>
+              <div class="card-accent"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff;font-weight:600;line-height:1.5">Governance = nhân ROI 12 lần</div></div>
+              <div class="card-accent"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#fff;font-weight:600;line-height:1.5">Năng lực AI = tài sản dài hạn</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="source" style="margin-top:12px;text-align:center">Nguồn · Deloitte Access Economics 2025 · khảo sát SME APAC</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 39 -->
+    <div class="slide" id="slide-38">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 06 · Giải pháp 01</div>
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:14px"><div class="tag-gold">Giải pháp 01</div><div style="font-family:'Oswald',sans-serif;font-size:30px;color:#fff;font-weight:700;letter-spacing:1px">Chủ quyền dữ liệu</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(255,255,255,.7);font-style:italic;margin-left:auto">Đối ứng rào cản Privacy 69%</div></div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:14px;padding:22px">
+            <div style="font-family:'Oswald',sans-serif;font-size:18px;color:#fff;font-weight:600;line-height:1.4">Chủ động kiểm soát dữ liệu = <span style="color:var(--gold)">LỢI THẾ CẠNH TRANH thực sự</span></div>
+            <div style="height:1px;background:var(--gold);opacity:.4"></div>
+            <div><div style="font-family:'Oswald',sans-serif;font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:10px">Công cụ 2026</div><div style="display:flex;flex-wrap:wrap;gap:8px"><span class="tag-gold">Gemma 4 (Google)</span><span class="tag-gold">Llama (Meta)</span><span class="tag-gold">Qwen (Alibaba)</span></div></div>
+          </div>
+          <div class="card" style="display:flex;flex-direction:column;gap:12px;padding:22px">
+            <div style="display:flex;align-items:flex-start;gap:12px"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><div style="font-size:14px;color:#fff;line-height:1.55">Dữ liệu KH <strong style="color:var(--gold)">KHÔNG rời hạ tầng</strong></div></div>
+            <div style="display:flex;align-items:flex-start;gap:12px"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><div style="font-size:14px;color:#fff;line-height:1.55">Giảm <strong style="color:var(--gold)">60-80%</strong> chi phí so với API bên ngoài (ChatGPT, Gemini, ...)</div></div>
+            <div style="display:flex;align-items:flex-start;gap:12px"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><div style="font-size:14px;color:#fff;line-height:1.55">Tránh <strong style="color:var(--gold)">vendor lock-in</strong></div></div>
+          </div>
+        </div>
+        <div class="card-accent" style="margin-top:14px;text-align:center"><div style="font-family:'Oswald',sans-serif;font-size:17px;color:#fff;font-weight:500;letter-spacing:.5px">KH lo privacy = <span style="color:var(--gold);font-weight:700">KH chọn BẠN</span>.</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 40 -->
+    <div class="slide" id="slide-39">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 06 · Giải pháp 02</div>
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:14px"><div class="tag-gold">Giải pháp 02</div><div style="font-family:'Oswald',sans-serif;font-size:30px;color:#fff;font-weight:700;letter-spacing:1px">AI Governance</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(255,255,255,.7);font-style:italic;margin-left:auto">Đối ứng rào cản Chi phí 37%</div></div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:grid;grid-template-columns:280px 1fr;gap:16px">
+          <div class="card-gold" style="display:flex;flex-direction:column;gap:14px;padding:22px;align-items:center;justify-content:center;text-align:center;background:rgba(212,175,55,.2);border-color:rgba(212,175,55,.6)">
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:#fff;font-weight:500;line-height:1.5">Governance KHÔNG phải gánh nặng · là <strong style="color:var(--gold)">ĐÒN BẨY nhân ROI</strong></div>
+            <div class="big-stat" style="font-size:100px">12×</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.78);font-style:italic;line-height:1.5">Tỷ lệ đưa AI vào production<br>(Databricks 2026)</div>
+          </div>
+          <div class="card" style="display:flex;flex-direction:column;gap:10px;padding:22px;justify-content:center">
+            <div style="display:flex;align-items:flex-start;gap:12px"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><div style="font-size:13.5px;color:#fff;line-height:1.55">Tiêu chí đánh giá AI rõ ràng · quy trình review chất lượng</div></div>
+            <div style="display:flex;align-items:flex-start;gap:12px"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><div style="font-size:13.5px;color:#fff;line-height:1.55">Phân quyền ai ra quyết định + cơ chế rollback khi sai</div></div>
+            <div style="display:flex;align-items:flex-start;gap:12px"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><div style="font-size:13.5px;color:#fff;line-height:1.55">Xây dựng nền tảng dữ liệu hợp nhất (Datalake)</div></div>
+            <div style="display:flex;align-items:flex-start;gap:12px"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><div style="font-size:13.5px;color:#fff;line-height:1.55">Sử dụng công cụ đánh giá (Evaluation Tools)</div></div>
+            <div style="display:flex;align-items:flex-start;gap:12px"><div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0"></div><div style="font-size:13.5px;color:#fff;line-height:1.55">Thiết lập các chốt chặn an toàn (guardrails)</div></div>
+          </div>
+        </div>
+        <div class="card-accent" style="margin-top:14px;text-align:center"><div style="font-family:'Oswald',sans-serif;font-size:17px;color:#fff;font-weight:500;letter-spacing:.5px">Sau 1 năm · khoảng cách với đối thủ · <span style="color:var(--gold);font-weight:700">12 lần</span>.</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 41 -->
+    <div class="slide" id="slide-40">
+      <div class="content-wrap">
+        <div class="sec-label">Phần 06 · Giải pháp 03</div>
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:14px"><div class="tag-gold">Giải pháp 03</div><div style="font-family:'Oswald',sans-serif;font-size:30px;color:#fff;font-weight:700;letter-spacing:1px">Năng lực AI nội bộ</div><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(255,255,255,.7);font-style:italic;margin-left:auto">Đối ứng rào cản Kỹ năng 32%</div></div>
+        <div class="gold-divider"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:rgba(255,255,255,.85);font-style:italic;line-height:1.5">Đào tạo và thay đổi văn hoá doanh nghiệp · SME là một lợi thế cực lớn.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;flex:1">
+            <div class="card-gold" style="display:flex;flex-direction:column;gap:10px;padding:20px"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:700">CEO & Quản lý cấp cao</div><div style="height:1px;background:var(--gold);opacity:.4"></div><div style="font-size:13px;color:#fff;line-height:1.55">Chiến lược + ra quyết định với <strong style="color:var(--gold)">AI Governance</strong></div></div>
+            <div class="card-gold" style="display:flex;flex-direction:column;gap:10px;padding:20px"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:700">Quản lý cấp trung</div><div style="height:1px;background:var(--gold);opacity:.4"></div><div style="font-size:13px;color:#fff;line-height:1.55">Áp dụng vào quy trình mới (AI+) vào team</div></div>
+            <div class="card-gold" style="display:flex;flex-direction:column;gap:10px;padding:20px"><div style="font-family:'Oswald',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:700">Nhân viên</div><div style="height:1px;background:var(--gold);opacity:.4"></div><div style="font-size:13px;color:#fff;line-height:1.55">Dùng công cụ + hiểu giới hạn</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="card-accent"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:#fff;line-height:1.55"><strong style="color:var(--gold)">Giữ chân talent</strong> · nhân sự muốn làm ở công ty có AI</div></div>
+            <div class="card-accent"><div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13.5px;color:#fff;line-height:1.55">Thay đổi Văn hóa <strong style="color:var(--gold)">AI first / AI native</strong></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 42 -->
+    <div class="slide" id="slide-41">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Oswald',sans-serif;font-weight:700;font-size:500px;color:rgba(0,0,0,.08);line-height:1;pointer-events:none;user-select:none;letter-spacing:22px">AI</div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 100px;z-index:2">
+        <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:36px;font-weight:500">Đóng bài</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#fff;line-height:1.3;text-align:center;letter-spacing:1px">Không cần chạy <span style="color:rgba(255,255,255,.6);font-weight:400">NHANH NHẤT</span>.</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:var(--gold);line-height:1.3;text-align:center;letter-spacing:1px;margin-top:14px">Cần đi ĐÚNG HƯỚNG NHẤT.</div>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:44px"><div style="width:70px;height:1px;background:var(--gold);opacity:.5"></div><div style="width:8px;height:8px;background:var(--gold);transform:rotate(45deg)"></div><div style="width:70px;height:1px;background:var(--gold);opacity:.5"></div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 43 -->
+    <div class="slide" id="slide-42">
+      <div class="content-wrap">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px">
+          <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:8px;color:var(--gold);text-transform:uppercase;font-weight:500">Thảo luận</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:110px;font-weight:700;color:#fff;line-height:1;letter-spacing:4px">Q & A</div>
+          <div style="width:96px;height:2px;background:var(--gold);margin:14px 0"></div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:18px;color:rgba(255,255,255,.85);text-align:center;font-style:italic">Câu hỏi & Thảo luận</div>
+          <div style="margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:6px">
+            <div style="font-family:'Oswald',sans-serif;font-size:20px;color:var(--gold);font-weight:700;letter-spacing:3px;text-transform:uppercase">John Vu · Anh TV</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:#fff">CEO Askvasir  ·  CEO Genesis Ecosystem</div>
+            <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.65);font-style:italic">AI Engineer | AI Researcher · FPT / NUS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 44 -->
+    <div class="slide" id="slide-43">
+      <div style="position:absolute;top:-140px;right:-140px;width:440px;height:440px;border:1px solid rgba(212,175,55,.2);border-radius:50%;pointer-events:none"></div>
+      <div style="position:absolute;bottom:-160px;left:-100px;width:380px;height:380px;border:1px solid rgba(212,175,55,.18);border-radius:50%;pointer-events:none"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 100px">
+        <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:10px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:24px">AIVN Summit K1</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:96px;font-weight:700;color:#fff;line-height:1;letter-spacing:3px;text-align:center">THANK YOU</div>
+        <div style="width:120px;height:2px;background:var(--gold);margin:32px 0"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <div style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:700">John Vu · Anh TV</div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:rgba(255,255,255,.85);font-style:italic">CEO Askvasir · CEO Genesis Ecosystem</div>
+          <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.65);font-style:italic;margin-top:4px">Thành viên sáng lập AI Vanguard Network</div>
+        </div>
+        <div style="margin-top:36px;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:rgba(255,255,255,.6);letter-spacing:.5px;font-style:italic">AIVN Summit K1  ·  25.04.2026  ·  Hà Nội</div>
+      </div>
+    </div>
+
+  </div><!-- end canvas -->
+  <div class="controls">
+    <button class="btn" id="btn-prev" onclick="prev()" disabled>← Back</button>
+    <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="slide-counter" id="slide-counter">1 / 44</div>
+    <div class="progress"><div class="progress-fill" id="progress-fill2"></div></div>
+    <button class="btn" id="btn-next" onclick="next()">Next →</button>
+  </div>
+</div>
+<script>
+const TOTAL = 44;
+let current = 0;
+function resize(){
+  const vw = window.innerWidth, vh = window.innerHeight - 60;
+  const ratio = 16/9;
+  let w = vw - 32, h = w / ratio;
+  if(h > vh - 32){h = vh - 32; w = h * ratio;}
+  const c = document.getElementById('canvas');
+  c.style.width = w + 'px';
+  c.style.height = h + 'px';
+  c.style.fontSize = (w / 960) + 'px';
+}
+function goTo(n){
+  document.getElementById('slide-'+current).classList.remove('active');
+  current = Math.max(0, Math.min(TOTAL-1, n));
+  document.getElementById('slide-'+current).classList.add('active');
+  document.getElementById('slide-counter').textContent = (current+1) + ' / ' + TOTAL;
+  const pct = (current / (TOTAL-1) * 100) + '%';
+  document.getElementById('progress-fill').style.width = pct;
+  document.getElementById('progress-fill2').style.width = pct;
+  document.getElementById('btn-prev').disabled = current === 0;
+  document.getElementById('btn-next').disabled = current === TOTAL-1;
+}
+function next(){if(current < TOTAL-1) goTo(current+1);}
+function prev(){if(current > 0) goTo(current-1);}
+document.addEventListener('keydown', e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') next();
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') prev();
+});
+window.addEventListener('resize', resize);
+resize(); goTo(0);
+</script>
+</body></html>
